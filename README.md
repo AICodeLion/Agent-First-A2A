@@ -25,7 +25,7 @@
 
 ## 工作原理
 
-![工作原理](assets/工作原理.png)
+![工作原理](assets/how-it-works.png)
 
 > **核心设计**：视角校正集中在 Matchmaker，Agent 只负责透传。双方都是评估者，也都是被评估者。
 
