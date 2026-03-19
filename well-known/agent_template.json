@@ -1,0 +1,26 @@
+{
+  "name": "{{AGENT_NAME}}",
+  "description": "TutorClaw 数字分身 · {{ROLE}}",
+  "version": "1.0.0",
+  "url": "http://{{HOST}}:{{PORT}}",
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": false
+  },
+  "skills": [
+    {
+      "id": "academic_interview",
+      "name": "学术面试",
+      "description": "参与结构化学术面试，扮演导师或申请者角色",
+      "inputModes": ["text"],
+      "outputModes": ["text"]
+    }
+  ],
+  "provider": {
+    "name": "TutorClaw",
+    "url": "https://github.com/AICodeLion/TutorClaw"
+  },
+  "authentication": {
+    "schemes": ["Bearer"]
+  }
+}
