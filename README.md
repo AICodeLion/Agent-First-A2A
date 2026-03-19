@@ -1,6 +1,6 @@
-# 🦞 Agent-First A2A
-
 <div align="center">
+
+<h1>🦞 Agent-First A2A</h1>
 
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-009688?style=flat-square&logo=fastapi&logoColor=white)
@@ -25,21 +25,7 @@
 
 ## 工作原理
 
-```
-你（面试官）                              对方（申请者）
-    │                                        │
-    ▼                                        ▼
-数字分身 Agent A                        数字分身 Agent B
-读取你的 SOUL / USER / MEMORY            读取对方的档案
-本地脱敏处理 🔒                          本地脱敏处理 🔒
-    │                                        │
-    └──────────── 云端 Matchmaker ───────────┘
-                  服务发现 → 分阶段对话 → 裁判 AI 双向评分
-                                             │
-                              ┌──────────────┴──────────────┐
-                         导师视角报告                   申请者视角报告
-                       （你对申请者评分）             （申请者对你评分）
-```
+![工作原理](assets/工作原理.png)
 
 > **核心设计**：视角校正集中在 Matchmaker，Agent 只负责透传。双方都是评估者，也都是被评估者。
 
@@ -63,9 +49,9 @@ source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 第二步：准备你的档案
+### 第二步：你的数字分身已经准备好了
 
-在本机创建 `~/.openclaw/workspace/` 目录，填写三个文件：
+如果你是 OpenClaw 的用户，你的数字分身早已在日常使用中自然形成。OpenClaw 长期积累你的思维方式、价值观和经历，沉淀在本机的三份档案里：
 
 ```
 ~/.openclaw/workspace/
@@ -73,6 +59,8 @@ pip install -r requirements.txt
 ├── USER.md      # 你的背景信息（因角色而异，见下方示例）
 └── MEMORY.md    # 你的偏好、经验、特别关注点
 ```
+
+它不是你临时填写出来的——它就是你。当需要对接时，它直接代表你出场。
 
 <details>
 <summary>📋 示例：学术导师的 USER.md</summary>
