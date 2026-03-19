@@ -1,4 +1,6 @@
-# 🦞 TutorClaw A2A
+# 🦞 Agent-First A2A
+
+> 当前实现场景：**TutorClaw**（学术面试）
 
 让你的数字分身代你完成第一轮对接，再由你决定是否亲自出场。
 
