@@ -31,7 +31,7 @@
 读取你的 SOUL / USER / MEMORY            读取对方的档案
 本地脱敏处理 🔒                          本地脱敏处理 🔒
     │                                        │
-    └──────────── Matchmaker ────────────────┘
+    └──────────── 云端 Matchmaker ───────────┘
                   服务发现 → 分阶段对话 → 裁判 AI 双向评分
                                              │
                               ┌──────────────┴──────────────┐
@@ -132,15 +132,26 @@ python3 agents/supervisor_agent.py \
 
 ### 第四步：启动撮合器
 
-双方 Agent 都启动后，任意一方运行撮合器：
+撮合器运行在云端服务器上，双方 Agent 启动后，由云端撮合器发起连接：
 
 ```bash
-# 跨机器
+# 云端服务器上运行
 python3 matchmaker.py \
   --agent-a http://面试官IP:8001 \
   --agent-b http://申请者IP:8002
+```
 
-# 本地测试（双 Agent 同一台机器）
+> 双方只需确保各自设备的端口对云端服务器可访问即可，面试官和申请者之间无需直接互通。
+
+```
+面试官设备 :8001  ←──┐
+                     ├── 云端 Matchmaker ── 驱动对话 ── 裁判评分
+申请者设备 :8002  ←──┘
+```
+
+本地测试（双 Agent 同一台机器）：
+
+```bash
 python3 matchmaker.py \
   --agent-a http://localhost:8001 \
   --agent-b http://localhost:8002
