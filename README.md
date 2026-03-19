@@ -7,6 +7,7 @@
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 ![Protocol](https://img.shields.io/badge/Protocol-A2A-orange?style=flat-square)
 ![Scene](https://img.shields.io/badge/场景-TutorClaw_学术面试-red?style=flat-square)
+![Security](https://img.shields.io/badge/隐私-本地脱敏处理-blueviolet?style=flat-square)
 
 **让你的数字分身代你完成第一轮对接，再由你决定是否亲自出场。**
 
@@ -36,6 +37,40 @@
 ```
 
 > **核心设计**：视角校正集中在 Matchmaker，Agent 只负责透传。双方都是评估者，也都是被评估者。
+
+---
+
+## 🔒 隐私与安全
+
+**你的档案永远不会原文发送。** 所有内容在离开本机之前，经过本地脱敏处理：
+
+```
+原始内容：联系我：zhang@example.com，手机 138-0000-1234
+脱敏后：  联系我：[EMAIL]，手机 [PHONE]
+```
+
+脱敏覆盖范围：
+
+| 类型 | 示例 | 替换为 |
+|---|---|---|
+| 手机号 | `138-0000-1234` | `[PHONE]` |
+| 邮箱地址 | `user@example.com` | `[EMAIL]` |
+| 身份证号 | `310...` | `[ID_NUMBER]` |
+| 家庭住址 | `上海市XX区XX路` | `[ADDRESS]` |
+| 银行卡号 | `6222...` | `[BANK_CARD]` |
+
+脱敏在本机完成，发送给 LLM 的内容已经是处理后的版本。你可以在启动日志中看到脱敏统计：
+
+```
+🔒 脱敏 2 处：手机号、邮箱地址
+✅ 无敏感信息
+```
+
+如需检查某个文件的脱敏结果，可以单独运行：
+
+```bash
+python3 sanitize.py ~/.openclaw/workspace/USER.md --dry-run
+```
 
 ---
 
